@@ -8,14 +8,14 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.dictionary.R
 
-class WordsAdapter(context: Context) : RecyclerView.Adapter<WordsViewHolder>() {
+class WordsAdapter(context: Context, letter: String) : RecyclerView.Adapter<WordsViewHolder>() {
     private val filteredWords: List<String>
 
     init {
         val words = context.resources.getStringArray(R.array.words).toList()
 
         filteredWords = words
-            .filter { it.startsWith('B', ignoreCase = true) }
+            .filter { it.startsWith(letter[0], ignoreCase = true) }
             .shuffled()
             .take(5)
             .sorted()

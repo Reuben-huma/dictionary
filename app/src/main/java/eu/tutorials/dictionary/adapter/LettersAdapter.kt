@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import eu.tutorials.dictionary.LettersFragmentDirections
 import eu.tutorials.dictionary.R
 
 class LettersAdapter : RecyclerView.Adapter<LettersViewHolder>() {
@@ -21,7 +22,8 @@ class LettersAdapter : RecyclerView.Adapter<LettersViewHolder>() {
         holder.button.text = dataSet[position].toString()
 
         holder.button.setOnClickListener {
-            holder.view.findNavController().navigate(R.id.action_lettersFragment_to_wordsFragment)
+            val action = LettersFragmentDirections.actionLettersFragmentToWordsFragment(letter = holder.button.text.toString())
+            holder.view.findNavController().navigate(action)
         }
     }
 

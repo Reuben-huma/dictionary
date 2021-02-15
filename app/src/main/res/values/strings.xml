@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Dictionary</string>
     <string name="letter_label">Words</string>
-    <string name="words_label">Words that start with %s</string>
+    <string name="words_label">Words that start with {letter}</string>
 </resources>

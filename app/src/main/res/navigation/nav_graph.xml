@@ -18,5 +18,9 @@
         android:id="@+id/wordsFragment"
         android:name="eu.tutorials.dictionary.WordsFragment"
         android:label="@string/words_label"
-        tools:layout="@layout/fragment_words"/>
+        tools:layout="@layout/fragment_words">
+        <argument
+            android:name="letter"
+            app:argType="string" />
+    </fragment>
 </navigation>

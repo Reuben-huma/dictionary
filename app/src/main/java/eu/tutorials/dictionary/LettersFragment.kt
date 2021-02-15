@@ -29,8 +29,8 @@ class LettersFragment : Fragment() {
 
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
-            lettersViewModel = sharedViewModel
             lettersFragment = this@LettersFragment
+            lettersViewModel = sharedViewModel
             recyclerView.adapter = LettersAdapter()
             recyclerView.layoutManager = LinearLayoutManager(context)
         }

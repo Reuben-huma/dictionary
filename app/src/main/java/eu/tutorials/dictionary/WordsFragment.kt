@@ -12,13 +12,19 @@ import eu.tutorials.dictionary.model.DictionaryViewModel
 
 class WordsFragment : Fragment() {
 
+    private lateinit var letter: String
     private lateinit var binding: FragmentWordsBinding
     private val sharedViewModel: DictionaryViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            letter = it.getString("letter").toString()
+        }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWordsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,7 +36,7 @@ class WordsFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             wordsViewModel = sharedViewModel
             wordsFragment = this@WordsFragment
-            recyclerView.adapter = WordsAdapter(requireContext())
+            recyclerView.adapter = WordsAdapter(requireContext(), letter)
             recyclerView.setHasFixedSize(true)
         }
     }
