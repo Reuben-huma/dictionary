@@ -41,4 +41,10 @@ class WordsFragment : Fragment() {
         }
     }
 
+    companion object {
+        const val TAG = "WordListFragment"
+        const val LETTER = "letter"
+        val SEARCH_PREFIX = "https://www.google.com/search?q="
+    }
+
 }
